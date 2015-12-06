@@ -1,0 +1,44 @@
+<ion-view title="{{title}}" hide-back-button="true">
+  
+  <!--Button for toggle Sidemenu-->
+  <ion-nav-buttons side="left">
+    <button class="button button-dark button-grey" ng-click="toggleSideMenu()">
+      <i class="icon ion-navicon"></i>
+    </button>
+  </ion-nav-buttons>
+  <!--/Button for toggle Sidemenu-->
+
+  <!--Button for trigger refresh-->
+  <ion-nav-buttons side="right">
+    <button class="button button-dark button-grey" ng-click="triggerRefresh()"><i class="icon ion-refresh"></i></button>
+  </ion-nav-buttons>
+  <!--Button for trigger refresh-->
+
+  <!--Content-->
+  <ion-content>
+    <div class="profile_tab_content">
+        <h4>Currenct Balance</h4>
+        <h4 style="color:#37964f">{{point}}</h4>
+    
+        <br>
+        <div style="color:#333;">Last month's balance : IDR 0.00</div>
+        
+        <br>
+        <div style="color:#333;">Last Redeem : IDR 30,000 on 2 March 2015 5:23 PM at Food hall Grand Indonesia.</div>
+        <br>
+        
+        <div class="list"> 
+            <label class="item item-input item0stacked-label">
+                <span class="input-label">Amount</span>
+                <input type="number" placeholder="" ng-model="redeem_amount"/>
+            </label>
+            
+            <br>
+            <button ng-click="onRedeem(redeem_amount)" class="button button-block button-assertive">Redeem</button>
+            <br>
+            <p style="color:#666">Please read out <font style="border-bottom:1px solid #666;">Terms and Conditions</font> before redeeming your balance.</p>
+        </div>
+    </div>
+  </ion-content>
+
+</ion-view>

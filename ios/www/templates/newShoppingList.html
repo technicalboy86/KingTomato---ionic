@@ -1,0 +1,68 @@
+<ion-view title="{{title}}" hide-back-button="true">
+  
+  <!--Button for toggle Sidemenu-->
+  <ion-nav-buttons side="left">
+    <button class="button button-dark button-grey" ng-click="toggleSideMenu()">
+      <i class="icon ion-navicon"></i>
+    </button>
+  </ion-nav-buttons>
+  <!--/Button for toggle Sidemenu-->
+
+  <!--Button for trigger refresh-->
+  <ion-nav-buttons side="right">
+    <button class="button button-dark button-grey" ng-click="triggerRefresh()"><i class="icon ion-refresh"></i></button>
+  </ion-nav-buttons>
+  <!--Button for trigger refresh-->
+
+  <!--Content-->
+  <ion-content>
+    
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="Title" ng-model="data.title" ></input>
+            </label>
+            <label class="item item-input">
+                <textarea placeholder="Type your list here." ng-model="data.content" rows="5"></textarea>
+            </label>
+        </div>
+        <div style="text-align:center; width:100%; color:red;" ng-click="onSendEmail()">
+            <span class="ion-ios7-upload font22"></span>
+        </div>
+        
+        <button ng-click="onSave()" class="button button-block button-assertive" style="width:90%;margin-left:5%;">SAVE</button>
+        
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="search" ng-model="data.searchTxt"/ >
+            </label>
+            <ion-list show-delete="false" show-recorder="false" can-swipe="false">
+                <ion-item ng-repeat="item in shoppingListArray | filter : data.searchTxt" class="item" ng-click="addToList($index)">
+                    <h2>{{item.title}}<h2>
+                    <p>
+                        {{item.description}}
+                    </p>
+                </ion-item>
+            </ion-list>
+
+        </div>
+        <!--
+    <div class="profile_tab_content">
+        <div class="button-bar" style="width:90%; margin-left:5%; margin-top:-20px;">
+            <button class="button button-block button-grey" ng-click="" style="width:40%; float:left;">Previous</button>
+            <button class="button button-block button-assertive" ng-click="" style="width:40%; float:right;">Next</button>
+        </div>
+        
+        <h3>Cash Back Program</h3>
+        <div style="color:#333" ng-hide="showSelectedImage">Upload the scan or photo of your valid purchase receip to get cash back. It will be credited to your registered Credit Card or Bank Account.</div>
+        <div style="color:#333; width:100%;" ng-show="showSelectedImage">
+            <img src="{{uploadImage}}" style="width:100%;" />
+        </div>
+        <br>
+        <button ng-click="onUpload()" class="button button-block button-assertive">Upload</button>
+    </div>
+         -->
+    <br>
+  </ion-content>
+
+</ion-view>

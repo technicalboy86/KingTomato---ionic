@@ -1,0 +1,53 @@
+<ion-view title="Login" hide-back-button="true">
+	
+  <ion-content style="top:65px !important">
+    
+    <!--Logo Kingtomato-->
+    <div class="text-center logo">
+      <img ng-src="img/logo-login.png" class="img-responsive">
+    </div>
+
+    <div style="border-top:1px solid #fff"></div>
+
+    <!--Login Container-->
+    <div class="list card no-background">
+      
+      <!--Login Form-->
+      <form name="login_form" ng-submit="signin(user)">
+        
+        <!--Username-->
+        <label class="item item-input">
+          <input type="text" name="username" ng-model="user.username" ng-required="true" placeholder="Email...">
+        </label>
+        
+        <!--Password-->
+        <label class="item item-input" style="margin-bottom:5px;">
+          <input type="password" name="password" ng-model="user.password" ng-required="true" placeholder="Password...">
+        </label>
+        
+        <a ng-click="onResetPassword()" style="color:#333; margin-left:5px; outline:0;">Forgot password?</a>
+            
+        <!--Button-->
+        <div class="row button_form" style="padding:0;">
+          <div class="col" style="padding-left:0;">
+            <button type="submit" class="button button-block button-assertive icon-left ion-log-in"><span>Login</span></button>
+          </div>
+          <div class="col" style="padding-right:0">
+            <a href="#/signup" class="button button-block button-assertive icon-right ion-person-add"><span>Register<span></a>
+          </div>
+        </div>
+
+        <div class="button_form" style="margin-top:-20px;">
+          <button type="button" class="button button-block button-dark icon-left ion-social-facebook" ng-click="loginWithFacebook()" style="background:#3b5997 !important; border: 1px solid #3b5997;">
+            <span>Login With Facebook</span>
+          </button>
+        </div>
+        
+        <br>
+      </form>
+    </div>
+    <!-- / Login Form-->
+
+  </ion-content>
+  
+</ion-view>

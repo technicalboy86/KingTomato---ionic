@@ -1,0 +1,131 @@
+<!--Home menu-->
+<ul class="list trigger" ng-class="menuActive=='Home'?'active':''">
+  <a menu-toggle="left" ng-href="#/layout/home" class="item">
+    <span class="ion-home font22"></span> Home
+  </a>
+</ul>
+<!--/Home menu-->
+
+<!--My King Tomato menu-->
+<ul class="list trigger" ng-class="menuActive=='Fresh Klub'?'active':''">
+    <a class="item" ng-click="menuMyKing=!menuMyKing;menuRecipes=false">
+        <span class="ion-android-user-menu font22"></span> Fresh Klub
+    </a>
+</ul>
+<ul class="list drop" ng-if="menuMyKing==true">
+    <a menu-toggle="left" ng-click="onProfile()" class="item">
+        <span class="ion-record font14"></span> Profile
+    </a>
+    <a menu-toggle="left" ng-click="onMyCashAccount()" class="item">
+        <span class="ion-record font14"></span> My Cash Account
+    </a>
+    <a menu-toggle="left" ng-click="onShoppingList()" class="item">
+        <span class="ion-record font14"></span> Shopping List
+    </a>
+    <a menu-toggle="left" ng-click="" class="item">
+        <span class="ion-record font14"></span> Upload Receipt
+    </a>
+<!--    
+    <a menu-toggle="left" ng-click="onOrders()" class="item">
+        <span class="ion-record font14"></span> Orders
+    </a>-->
+</ul>
+<!--/My King Tomato menu-->
+
+<!--Product menu-->
+<ul class="list trigger" ng-class="menuActive=='Products'?'active':''">
+  <a menu-toggle="left" ng-href="#/layout/products" class="item">
+    <span><img src="img/tomato.png" width="24" style="margin-left:0px"></span> Products
+  </a>
+</ul>
+<!--/Product menu-->
+
+<!--News menu
+ 
+ <a class="item" ng-click="menuNews=!menuNews;menuRecipes=false">
+ -->
+<ul class="list trigger" ng-class="menuActive=='News'?'active':''">
+  <a menu-toggle="left" href="#/layout/news" class="item">
+    <span class="ion-document-text font22"></span> News
+  </a>
+</ul>
+<!--
+<ul class="list drop" ng-if="menuNews==true">
+  <a menu-toggle="left" href="#/layout/news" class="item">
+      <span class="ion-record font14"></span> Latest news
+  </a>
+  
+  <a menu-toggle="left" href="#/layout/video" class="item">
+      <span class="ion-record font14"></span> Video
+  </a>-->
+</ul>
+<!--/News menu-->
+
+<!-- Events menu
+<ul class="list trigger" ng-class="menuActive=='Events'?'active':''">
+    <a menu-toggle="left" ng-href="#/layout/events" class="item">
+        <span class="ion-ios7-calendar font22"></span> Events
+    </a>
+</ul>
+ -->
+<!--/ Events menu-->
+
+<!-- Facts Area menu-->
+<ul class="list trigger" ng-class="menuActive=='Facts Area'?'active':''">
+    <a menu-toggle="left" ng-href="#/layout/facts" class="item">
+        <span class="ion-clock font22"></span> Facts Area
+    </a>
+</ul>
+<!--/ Facts Area menu-->
+
+<!--Recipes menu-->
+<ul class="list trigger" ng-class="menuActive=='Recipes'?'active':''">
+  <a class="item" ng-click="menuRecipes=!menuRecipes;menuNews=false">
+    <span class="ion-clipboard font22"></span> Recipes
+  </a>
+</ul>
+<ul class="list drop" ng-if="menuRecipes==true&&menuActive!='Recipes'">
+  <a menu-toggle="left" ng-href="#/layout/recipes/all" class="item"><span class="ion-record font14"></span> All</a>
+  <a menu-toggle="left" ng-href="#/layout/recipes/{{item.id}}" ng-repeat="item in recipeCategories" class="item">
+    <span class="ion-record font14"></span> {{item.title}}
+  </a>
+</ul>
+<ul class="list drop" ng-if="menuRecipes==true&&menuActive=='Recipes'">
+    <a menu-toggle="left" ng-click="changeCategory('')" class="item"><span class="ion-record font14"></span> All</a>
+  <a menu-toggle="left" ng-click="changeCategory(item.id)" ng-repeat="item in recipeCategories" class="item">
+    <span class="ion-record font14"></span> {{item.title}}
+  </a>
+</ul>
+<!--/Recipes menu-->
+
+
+<!--Friends of King Tomato menu-->
+<ul class="list trigger" ng-class="menuActive=='Friends of King Tomato'?'active':''">
+    <a menu-toggle="left" ng-href="#/layout/friends" class="item">
+        <span class="ion-person-stalker font22"></span> Friends of King Tomato
+    </a>
+</ul>
+<!--/Friends of King Tomato menu-->
+
+<!--Location menu-->
+<ul class="list trigger" ng-class="menuActive=='Stores'?'active':''">
+    <a menu-toggle="left" ng-href="#/layout/location" class="item">
+        <span class="ion-android-location font22"></span> Stores
+    </a>
+</ul>
+<!--/Location menu-->
+
+<!--Newsletter menu-->
+<ul class="list trigger">
+  <a menu-toggle="left" ng-click="openModal()" class="item">
+    <span class="ion-ios7-email font22"></span> Newsletter
+  </a>
+</ul>
+<!--/Newsletter menu-->
+
+<ul class="list trigger" ng-if="isAuthenticated">
+  <a ng-click="logout()" class="item">
+    <span class="ion-log-out font22"></span>
+    Logout
+  </a>
+</ul>

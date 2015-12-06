@@ -1,0 +1,61 @@
+<ion-view title="{{title}}" hide-back-button="true">
+  
+  <!--Button for toggle Sidemenu-->
+  <ion-nav-buttons side="left">
+    <button class="button button-dark button-grey" ng-click="toggleSideMenu()">
+      <i class="icon ion-navicon"></i>
+    </button>
+  </ion-nav-buttons>
+  <!--/Button for toggle Sidemenu-->
+
+  <!--Button for trigger refresh-->
+  <ion-nav-buttons side="right">
+    <button class="button button-dark button-grey" ng-click="triggerRefresh()"><i class="icon ion-refresh"></i></button>
+  </ion-nav-buttons>
+  <!--Button for trigger refresh-->
+
+  <!--Content-->
+  <ion-content>
+
+    <!--Trigger refresh on pull-->
+    <ion-refresher on-refresh="loadAllData()"></ion-refresher>
+    
+    <!--Show message if there is no internet connection-->
+    <div class="content-center" ng-if="connection==false">
+      <i class="ion-alert-circled font22"></i> Couldn't refresh feed
+    </div>
+    
+    <!--Repeat item-->
+    <div class="list card" ng-repeat="item in tvc | orderBy:'-added_date'">
+      
+      <!--Title-->
+      <div class="item" style="padding-bottom:0">
+        <h2>
+          <a>
+            {{item.title}}
+          </a>
+        </h2>
+      </div>
+      <!--/Title-->
+      
+      <!--Item body-->
+      <div class="item item-body">
+
+        <!--Video-->
+        <a ng-click="playVideo(item.path)" class="video">
+          <img class="full-image" ng-src="{{item.thumb}}" err-src="img/logo.png">
+          <div class="icon-play">
+            <span class="ion-play font72"></span>
+          </div>
+        </a>
+
+        <div ng-bind-html="item.description"></div>
+      </div>
+      <!--Item body-->
+
+    </div>
+    <div style="height:32px;"></div>
+  </ion-content>
+  <!--Content-->
+  
+</ion-view>

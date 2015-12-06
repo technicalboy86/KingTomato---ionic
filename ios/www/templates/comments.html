@@ -1,0 +1,52 @@
+<ion-view title="{{title}}">
+	
+  <!--Content-->
+  <ion-content>
+    
+    <!--Show message if there is no internet connection-->
+    <div class="content-center" ng-if="connection==false">
+      <i class="ion-alert-circled font22"></i> Couldn't refresh comments
+    </div>
+
+    <!--Container for comments-->
+    <div class="list" ng-if="loading==false">
+      
+      <!--Repeat item-->
+      <div ng-repeat="item in comments" class="item item-avatar" href="#">
+        
+        <!--Image-->
+        <img src="img/icon-orang.jpg" style="top:30px">
+        
+        <!--Each Comment-->
+        <div class="item-body" style="margin-top:0;padding-top:0">
+          <h2>{{item.name}}</h2>
+          <p>{{item.description}}</p>
+        </div>
+        <!--/Each Comment-->
+      </div>
+      <!--/Repeat item-->
+      
+    </div>
+    <!--Container for comments-->
+
+    <div style="height:32px;"></div>
+    
+  </ion-content>
+
+  <!--Footer-->
+  <div class="bar bar-footer bar-stable">
+    
+    <!--Comment text-->
+    <label class="item-input-wrapper" style="background:none">
+      <textarea ng-model="description" type="search" placeholder="Add a comment..."></textarea>
+    </label>
+
+    <!--Button Send-->
+    <button type="submit" class="button button-assertive" ng-click="addComment(description)">
+      Send
+    </button>   
+  
+  </div>
+  <!--/Footer-->
+
+</ion-view>

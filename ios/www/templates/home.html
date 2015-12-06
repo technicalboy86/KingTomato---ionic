@@ -1,0 +1,44 @@
+<ion-view title="Home" hide-back-button="true">
+  <!--Button for toggle Sidemenu-->
+  <ion-nav-buttons side="left">
+    <button class="button button-dark button-grey" ng-click="toggleSideMenu()">
+      <i class="icon ion-navicon"></i>
+    </button>
+  </ion-nav-buttons>
+  <!--/Button for toggle Sidemenu-->
+
+  <!--Content-->
+  <ion-content scroll="true">
+    
+    <!--Show message if there is no internet connection-->
+    <div class="content-center" ng-if="connection==false">
+      <i class="ion-alert-circled font22"></i> No internet connection
+    </div>
+
+    <!--Show Opening Image
+    <div ng-carousel="slide in slides" ng-carousel-options="carouselOptions" class="main-slider">
+      <img ng-src="{{slide.thumb}}" class="full-image img-responsive">
+    </div>-->
+    <br>
+    <a href="#/layout/recipes/all">
+        <div class="home_list_item">
+            <img ng-src="img/King Tomato_Mobile Apps_Resep.jpg" class="full-image">
+        </div>
+    </a>
+    <br>
+    <a  href="#/layout/news">
+        <div class="home_list_item">
+            <img ng-src="img/King Tomato_Mobile Apps_Berita.jpg" class="full-image">
+        </div>
+    </a>
+    <br>
+    <a href="#/layout/location">
+        <div class="home_list_item">
+            <img ng-src="img/King Tomato_Mobile Apps_Lokasi.jpg" class="full-image">
+        </div>
+    </a>
+    
+  </ion-content>
+  <!--Content-->
+
+</ion-view>

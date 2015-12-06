@@ -1,0 +1,73 @@
+<ion-view title="{{title}}" hide-back-button="true" style="background:#EEEEEE">
+
+  <!--Button for toggle Sidemenu-->
+  <ion-nav-buttons side="left">
+    <button class="button button-dark button-grey" ng-click="toggleSideMenu()">
+      <i class="icon ion-navicon"></i>
+    </button>
+  </ion-nav-buttons>
+  <!--/Button for toggle Sidemenu-->
+
+  <!--Button for trigger refresh-->
+  <ion-nav-buttons side="right">
+      <button class="button button-dark button-grey" ng-click="triggerRefresh()"><i class="icon ion-refresh"></i></button>
+  </ion-nav-buttons>
+  <!--Button for trigger refresh-->
+
+  <!--Maps-->
+  <div style="top:119px;left:10px;right:10px;position:absolute;">
+    <div class="item" style="padding-bottom:0">
+      <h2>
+        <a>
+          Store Locator
+        </a>
+      </h2>
+    </div>
+
+    <div class="item item-body">
+      <div id="canvas-map"
+        ng-style="{'width':'100%','height':((windowHeight-100)/2) + 'px','border':'1px solid #D4D4D4'}">
+      </div>
+    </div>
+  </div>
+
+  <ion-content id="main-content" ng-style="{'margin-top':(65 + (windowHeight-155)/2) + 'px'}">
+    <!--Show message if there is no internet connection-->
+    <div class="content-center" ng-if="connection==false">
+      <i class="ion-alert-circled font22"></i> No internet connection
+    </div>
+
+    <div style="text-align:center;margin-top:30px;"></div>
+
+    <!--Content-->
+    <div class="list card">
+      <div style="text-align:center;margin-top:30px;color:#ccc;"><em>Scroll down for stores</em></div>
+      <!--Repeat item-->
+      <div ng-repeat="item in stores | orderBy:'distance'" ng-click="renderDirection(item.latitude, item.longitude)" class="item item-avatar">
+
+        <!--Image-->
+        <img ng-if="item.thumb!=null" ng-src="{{url + item.thumb}}" class="thumb-store">
+
+        <!--Item body-->
+        <div class="item-title">
+          <strong>{{item.title}}</strong>
+          <p class="item-desc">{{item.description}}</p>
+          
+          <div class="distance" ng-if="item.distance!=null">
+            {{(item.distance / 1000).toFixed(2)}} km
+          </div>
+          
+        </div>
+        <!--/Item body-->
+
+      </div>
+      <!--/Repeat item-->
+
+    </div>
+    <!--Content-->
+
+    <div style="height:10px;"></div>
+
+  </ion-content>
+
+</ion-view>

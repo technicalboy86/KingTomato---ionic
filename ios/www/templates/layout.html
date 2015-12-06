@@ -1,0 +1,33 @@
+<ion-view title="{{title}}" hide-back-button="true">
+  
+  <!--Sidemenu-->
+  <ion-side-menus>
+    
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+      <ion-content style="top:65px !important">
+
+        <!--Include sidemenu on 'templates/sidemenu.html'-->
+        <div ng-include="'templates/sidemenu.html'"></div>
+
+      </ion-content>
+    </ion-side-menu>
+
+    <!-- Center content -->
+    <ion-side-menu-content drag-content="false" style="background:#EEEEEE">
+      <!--Subtitle-->
+      <div class="bar sub-bar bar-header bar-assertive">
+        <h2 class="title sub_title">{{menuActive}}</h2>
+      </div>
+      <!--/Subtitle-->
+  
+      <!--Partial View-->
+      <ion-nav-view name="layout" animation="slide-left-right-ios7"></ion-nav-view>
+      
+    </ion-side-menu-content>
+    <!-- /Center content -->
+
+  </ion-side-menus>
+  <!--Sidemenu-->
+
+</ion-view>

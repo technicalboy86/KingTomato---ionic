@@ -1,0 +1,42 @@
+<div class="modal">
+	<ion-header-bar class="bar bar-header bar-assertive">
+	  <h1 class="title">Subscribe Newsletter</h1>
+    <button class="button" ng-click="closeModal()"><i class="icon ion-close"></i></button>
+	</ion-header-bar>
+
+	<ion-content style="top:65px !important;">
+    
+    <div class="list">
+      <div class="item">
+        <h2 class="text-center">Join Our Newsletter Now</h2>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Fullname</span>
+          <input type="text" placeholder="First Name" ng-model="newsletter.fullname">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="text" readonly placeholder="Your Email" ng-model="newsletter.email">
+        </label>
+        <li class="item item-checkbox">
+           <label class="checkbox">
+             <input type="checkbox" ng-model="newsletter.status">
+           </label>
+           <small>Send me newsletter</small>
+        </li>
+
+        <div style="padding-top:12px">
+          <button type="submit" ng-click="subscribe(newsletter.fullname, newsletter.email)" ng-disabled="!newsletter.status" class="button button-block button-assertive">Subscribe to our newsletter</button>
+        </div>
+        <p><a href="#" ng-click="hideNewsletter()">Don't show it again.</a></p>
+
+      </div>
+    </div>
+    
+  </ion-content>
+
+</div>

@@ -1,0 +1,49 @@
+<ion-view title="{{title}}">
+
+  <!--Content-->
+  <ion-content>
+    
+    <!--Show message if there is no internet connection-->
+    <div class="content-center" ng-if="connection==false">
+      <i class="ion-alert-circled font22"></i> Couldn't refresh feed
+    </div>
+    
+    <!--Repeat item-->
+    <div class="list card">
+      <!--Title-->
+
+      <div class="subject" style="padding-bottom:0">
+          <div class="title">
+              <a ng-href="#" >
+                  {{friend.title}}
+              </a>
+          </div>
+      </div>
+      <!--/Title-->
+      
+      <!--Item body-->
+      <div class="item item-body">
+        <!--Image-->
+        <a ng-init="isImageFull=false" ng-click="isImageFull=!isImageFull" ng-class="isImageFull?'half':'full'">
+          <img class="full-image" ng-src="{{friend.thumb}}" err-src="img/logo.png">
+        </a>
+        
+        <br>
+        <!--Description-->
+        <div ng-bind-html="friend.content"></div>
+        
+        <br>
+        
+        <!--Button share
+        <button class="button button-stable icon-left ion-forward" type="button" ng-click="share(friend.id, friend.title)">Share</button>-->
+      </div>
+      <!--Item body-->
+    </div>
+    <!--/Repeat item-->
+
+    <div style="height:32px;"></div>
+
+  </ion-content>
+  <!--Content-->
+    
+</ion-view>

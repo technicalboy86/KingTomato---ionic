@@ -1,0 +1,62 @@
+<ion-view title="{{title}}" hide-back-button="true">
+  
+  <!--Button for toggle Sidemenu-->
+  <ion-nav-buttons side="left">
+    <button class="button button-dark button-grey" ng-click="toggleSideMenu()">
+      <i class="icon ion-navicon"></i>
+    </button>
+  </ion-nav-buttons>
+  <!--/Button for toggle Sidemenu-->
+
+  <!--Button for trigger refresh-->
+  <ion-nav-buttons side="right">
+    <button class="button button-dark button-grey" ng-click="triggerRefresh()"><i class="icon ion-refresh"></i></button>
+  </ion-nav-buttons>
+  <!--Button for trigger refresh-->
+
+  <!--Content-->
+  <ion-content>
+    
+    <!--Trigger refresh on pull-->
+    <ion-refresher on-refresh="loadAllData()"></ion-refresher>
+    
+    <!--Show message if there is no internet connection-->
+    <div class="content-center" ng-if="connection==false">
+      <i class="ion-alert-circled font22"></i> Couldn't refresh feed
+    </div>
+    
+    <!--Repeat item-->
+    <div class="list card" ng-repeat="item in facts | orderBy:'-added_date'">
+      
+      <!--Title-->
+      <div class="subject" style="padding-bottom:0">
+          <div class="title">
+              <a ng-href="#/layout/facts/{{item.id}}" >
+                  {{item.title}}
+              </a>
+          </div>
+      </div>
+      <!--Title-->
+      
+      <!--item body-->
+      <div class="item item-body">
+        <!--Image-->
+        <a ng-init="isImageFull=true" ng-click="isImageFull=!isImageFull" ng-class="isImageFull?'half':'full'">
+          <img class="full-image" ng-src="{{item.thumb}}" err-src="img/logo.png">
+        </a>
+        <!--Image-->
+
+        <!--Description-->
+        <div ng-bind-html="item.content|htmlToPlaintext|cut:true:200" style="margin-top:10px;margin-bottom:4px;"></div>
+        <!--Description-->
+
+        <!--Button-->
+        <p><a ng-href="#/layout/facts/{{item.id}}" class="button button-small button-stable">Read More</a></p>
+      </div>
+      <!--item body-->
+
+    </div>
+    <div style="height:32px;"></div>
+  </ion-content>
+
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view title="Phone Number">
+	
+  <ion-content style="top:44px">
+    
+    <div class="content-center" ng-if="connection==false">
+      <i class="ion-alert-circled font22"></i> No internet connection.
+    </div>
+    
+    <form name="signup_form" ng-submit="updatePhone(user)">
+      <div class="list card no-background">
+        <div class="text-center"><strong>We need your phone number to provide information about King Tomato Store</strong></div>
+        <br>
+        <label class="item item-input">
+          <input type="text" placeholder="Your phone number..." name="fullname" ng-model="user.phone" required>
+        </label>
+
+        <br>
+        <button class="button button-block button-assertive">Submit</button>
+
+        <a href="#/layout/home">Skip this for now</a>
+      </div>
+    </form>
+
+  </ion-content>
+  
+</ion-view>

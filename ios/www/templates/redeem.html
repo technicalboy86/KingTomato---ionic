@@ -1,0 +1,56 @@
+<ion-view title="{{title}}" hide-back-button="true">
+  
+  <!--Button for toggle Sidemenu-->
+  <ion-nav-buttons side="left">
+    <button class="button button-dark button-grey" ng-click="toggleSideMenu()">
+      <i class="icon ion-navicon"></i>
+    </button>
+  </ion-nav-buttons>
+  <!--/Button for toggle Sidemenu-->
+
+  <!--Button for trigger refresh-->
+  <ion-nav-buttons side="right">
+    <button class="button button-dark button-grey" ng-click="triggerRefresh()"><i class="icon ion-refresh"></i></button>
+  </ion-nav-buttons>
+  <!--Button for trigger refresh-->
+
+  <!--Content-->
+  <ion-content>
+    <div class="profile_tab_content">
+        <h4>Currenct Balance</h4>
+        <h4 style="color:#37964f">IDR {{point}}</h4>
+    
+        <br>
+        <div style="color:#333;">Last month's balance : IDR 0.00</div>
+        
+        <br>
+        <div style="color:#333;">Last Redeem : IDR 30,000 on 2 March 2015 5:23 PM at Food hall Grand Indonesia.</div>
+        <br>
+        <h3 style="width:100%; text-align:center; color:#37964f">SUCCESS</h3>
+        <br>
+        <div class="list">
+            <label class="item item-input item0stacked-label">
+                <span class="input-label">Reference Number</span>
+                <input type="text" placeholder="" ng-model="referenceNumber"/>
+            </label>
+            <p style="color:#666">This number will also sent to your email.</p>
+            <br>
+            <label class="item item-input item-select">
+                <div class="input-label">Store Name</div>
+                <select>
+                    <option selected>Store 1</option>
+                    <option>Store 2</option>
+                    <option>Store 3</option>
+                    <option>Store 4</option>
+                </select>
+            </label>
+            <p style="color:#666">Tell us on which store did you redeem this.</p>
+            <br>
+            <button ng-click="onDone()" class="button button-block button-assertive">Done</button>
+            <br>
+
+        </div>
+    </div>
+  </ion-content>
+
+</ion-view>

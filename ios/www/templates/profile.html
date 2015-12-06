@@ -1,0 +1,108 @@
+<ion-view title="{{title}}" hide-back-button="true">
+  
+  <!--Button for toggle Sidemenu-->
+  <ion-nav-buttons side="left">
+    <button class="button button-dark button-grey" ng-click="toggleSideMenu()">
+      <i class="icon ion-navicon"></i>
+    </button>
+  </ion-nav-buttons>
+  <!--/Button for toggle Sidemenu-->
+
+  <!--Button for trigger refresh-->
+  <ion-nav-buttons side="right">
+    <button class="button button-dark button-grey" ng-click="triggerRefresh()"><i class="icon ion-refresh"></i></button>
+  </ion-nav-buttons>
+  <!--Button for trigger refresh-->
+
+  <!--Content-->
+  <ion-content>
+    
+    <br>
+    <div class="button-bar profile_tab">
+            <a class="button" ng-class="{'button-positive':isActive('Account')}" ng-click="setActive('Account')">Account</a>
+            <a class="button" ng-class="{'button-positive':isActive('Personal')}" ng-click="setActive('Personal')">Personal</a>
+            <a class="button" ng-class="{'button-positive':isActive('Financial')}" ng-click="setActive('Financial')">Financial</a>
+    </div>
+    <br>
+    <div class="profile_tab_content" ng-if="isActive('Account')">
+        <h5>{{userEmail}}</h5>
+        <br>
+        
+        <label class="item item-input item-stacked-label" style="border:0px;">
+            <span class="input-label">New Password</span>
+            <input type="password" placeholder="" ng-model="newPassword" ng-required="true"/>
+        </label>
+        <label class="item item-input item-stacked-label" style="border:0px;">
+            <span class="input-label">Confirm New Password</span>
+            <input type="password" placeholder="" ng-model="confirmPassword" ng-required="true"/>
+        </label>
+        <br>
+        <button ng-click="onChangePsw(newPassword, confirmPassword)" class="button button-block button-assertive">Change Password</button>
+        
+    </div>
+    <div class="profile_tab_content" ng-if="isActive('Personal')">
+        <div class="button-bar" style="width:90%; margin-left:5%; border:0px;">
+            <ion-radio ng-repeat="item in genderTypeList" ng-value="item.value" ng-checked="item.selected" ng-model="gender.type" >{{item.text}}</ion-radio>
+        </div>
+        <br>
+        <label class="item item-input">
+            <input type="text" ng-model="firstName" placeholder="First Name" ng-required="true"/>
+        </label>
+        <label class="item item-input">
+            <input type="text" ng-model="lastName" placeholder="Last Name" ng-required="true"/>
+        </label>
+        <label class="item item-input">
+            <input type="number" ng-model="phone" placeholder="Cell Phone Number" ng-required="true"/>
+        </label>
+        <label class="item item-input">
+            <input type="text" ng-model="address" placeholder="Address" ng-required="true"/>
+        </label>
+        <br>
+        <button ng-click="onChnagePersonal(firstName, lastName, phone, address)" class="button button-block button-assertive">Submit</button>
+        <br>
+    </div>
+    <div class="profile_tab_content" ng-if="isActive('Financial')">
+        <h5>Credit Card Details</h5>
+        <div class="list" style="width:100%; border:0px;">
+            <ion-radio ng-repeat="item in cardTypeList" ng-value="item.value" ng-checked="item.selected" ng-model="card.type" >{{item.text}}</ion-radio>
+        </div>
+        <br>
+        <label class="item item-input">
+            <span class="input-label">Credit Card Number</span>
+            <input type="number" ng-model="creditCardNumber" placeholder=""/>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Card Holder Name</span>
+            <input type="text" ng-model="cardHolderName" placeholder=""/>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Expiry Date</span>
+            <input type="date" ng-model="expireDate" placeholder=""/>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Card Verification Code</span>
+            <input type="text" ng-model="cardVerificationCode" placeholder=""/>
+        </label>
+        <hr>
+        <br>
+        <h5>Bank Account Details</h5>
+        <label class="item item-input item-select">
+            <div class="input-label">Bank Name</div>
+            <select ng-options="aBank.id as aBank.title for aBank in bankList" ng-change="" ng-model="selectedBank.id">
+            </select>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Account Number</span>
+            <input type="number" ng-model="accountNumber" placeholder=""/>
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Account Owner's Name</span>
+            <input type="text" ng-model="ownerName" placeholder=""/>
+        </label>
+        <br>
+        <button ng-click="onFinancial(creditCardNumber, cardHolderName, expireDate, cardVerificationCode, accountNumber, ownerName)" class="button button-block button-assertive">Submit</button>
+        <br>
+    </div>
+  </ion-content>
+
+</ion-view>
